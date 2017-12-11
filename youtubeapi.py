@@ -107,10 +107,10 @@ trace1 = go.Scatter(
     marker=dict(
         color='red',
         line=dict(
-            color='red',
-            width=1,
+            color='magenta',
+            width=1.8,
         ),
-        symbol='circle',
+        symbol='square',
         size=16,
     )
 )
@@ -119,7 +119,6 @@ layout = go.Layout(
     title='Last 50 YouTube Posts Containing Stranger Things',
     xaxis=dict(
         title='Day of the Week'
-
     ),
     yaxis=dict(
         title='Amount of Posts',
@@ -127,7 +126,47 @@ layout = go.Layout(
         )
     )
 
-
 data = [trace1]
 fig = go.Figure(data=data, layout=layout)
 py.plot(fig, filename='style-bar')
+
+
+
+
+trace0 = go.Scatter(
+    x=['Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Saturday','Sunday'],
+    y=youtube_days,
+    mode='markers',
+    name='posts',
+    marker=dict(
+        color='red',
+        line=dict(
+            color='magenta',
+            width=1.5,
+        ),
+        symbol='square',
+        size=16,
+    )
+)
+
+
+data = [trace0]
+layout = go.Layout(
+    title="Last 50 YouTube Posts Containing Stranger Things",
+    xaxis=dict(
+        title='Day of the Week',
+    ),
+
+
+    yaxis=dict(
+        title='Amount of Posts',
+    ),
+
+
+    width=800,
+    height=600,
+    plot_bgcolor='rgb(253, 238, 252)'
+
+)
+fig = go.Figure(data=data, layout=layout)
+py.plot(fig, filename='scatterplot')

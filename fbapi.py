@@ -93,7 +93,16 @@ print('Creating Plotly for Stranger Things Facebook Page Posts')
 trace = go.Bar(
     x=['Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Saturday','Sunday'],
     y= facebook_days, #takes the list of numbers from facebook_days and matches with monday-sunday
+    marker=dict(
+        color='blue',
+        line=dict(
+            color='navy',
+            width=3,
+        )
+    )
+
 )
+opacity = 0.6
 
 layout = go.Layout(
     title='Last 100 Posts From The Stranger Things Facebook Page',
@@ -104,9 +113,11 @@ layout = go.Layout(
     yaxis=dict(
         title='Amount of Posts',
 
-        )
-    )
-
+    ),
+width=800,
+height=600,
+plot_bgcolor='rgb(194, 189, 255)'
+)
 
 data = [trace]
 fig = go.Figure(data=data, layout=layout)
